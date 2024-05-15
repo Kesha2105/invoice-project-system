@@ -26,7 +26,10 @@ const AddInvoice = ({setAddInvoice}) => {
   const [invoice, setInvoice] = useState(defaultObj);
 
   const onValueChange = (e) => {
-    setInvoice({...invoice, [e.target.name]: e.target.value});
+    // setInvoice({...invoice, [e.target.name]: e.target.value});
+    const { name, value } = e.target; // Destructure name and value from e.target
+    setInvoice({ ...invoice, [name]: value }); // Update the corresponding property in invoice state
+  
   };
 
   const addNewInvoice = async() =>{
@@ -43,7 +46,9 @@ setAddInvoice(false);
         required
           variant="standard"
           placeholder="Enter vendor name"
-          onChange={() => onValueChange(e)}
+          // onChange={() => onValueChange(e)}
+          onChange={onValueChange}
+
           name="vendor"
         //   label="Required"
         />
@@ -51,7 +56,9 @@ setAddInvoice(false);
         required
           variant="standard"
           placeholder="Enter product name"
-          onChange={() => onValueChange(e)}
+          // onChange={() => onValueChange(e)}
+          onChange={onValueChange}
+
           name="product"
         />
         <TextField
@@ -59,7 +66,9 @@ setAddInvoice(false);
           variant="standard"
           placeholder="Enter amount (in Rs)"
           type="number"
-          onChange={() => onValueChange(e)}
+          // onChange={() => onValueChange(e)}
+          onChange={onValueChange}
+
           name="amount"
         />
         <TextField
@@ -67,7 +76,9 @@ setAddInvoice(false);
           variant="standard"
           placeholder="Enter date"
           type="date"
-          onChange={() => onValueChange(e)}
+          // onChange={(e) => onValueChange(e)}
+          onChange={onValueChange}
+
           name="date"
         />
         <Button 
