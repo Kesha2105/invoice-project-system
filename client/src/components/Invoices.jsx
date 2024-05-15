@@ -36,8 +36,8 @@ const Invoices = ({invoices, removeInvoice}) => {
         </TableRow>
       </TableHead>
       <TableBody>
-        {Invoices.map((invoice) => (
-          <TableRow>
+        {invoices.map((invoice) => (
+          <TableRow key={invoice.id}>
             <TableCell>{invoice.vendor}</TableCell>
             <TableCell>{invoice.product}</TableCell>
             <TableCell>{invoice.amount}</TableCell>
