@@ -6,7 +6,7 @@ export const saveInvoice =async (payload) =>{
       return  await axios.post(`${API_URL}/invoice`, payload);
     }catch(error){
         console.log('Error:' , error.message);
-        return error.response.data;
+        return error;
     }
 }
 
@@ -15,7 +15,7 @@ export const getAllInvoice = async () =>{
             return await axios.get(`${API_URL}/invoice`);
     }catch(error){
         console.log('Error:' , error.message);
-        return error.response.data;
+        return error;
     }
 }
 
@@ -24,6 +24,6 @@ export const deleteInvoice =async (id) =>{
       return  await axios.delete(`${API_URL}/invoice`);
     }catch(error){
         console.log('Error:' , error.message);
-        return error.response.data;
+        return error;
     }
 }
